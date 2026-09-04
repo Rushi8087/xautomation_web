@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Send,
@@ -195,10 +195,10 @@ function ContactForm() {
 }
 
 // ─── FAQ Accordion ─────────────────────────────────────────────────────────────
-const faqs = [
-  { q: "How long does a project take?", a: "Most websites are delivered in 2–4 weeks depending on complexity. Custom web apps may take 4–8 weeks. We'll give you a clear timeline before we start." },
-  { q: "Do you offer maintenance after launch?", a: "Yes! We offer monthly maintenance packages that include updates, performance monitoring, security patches, and priority support." },
-  { q: "What's your pricing like?", a: "Projects start from $1,500 for landing pages and scale based on features and complexity. We offer transparent, fixed-price quotes — no hidden fees." },
+const staticFaqs = [
+  { q: "How long does a project take?", a: "Most websites are delivered within 2 weeks. We'll give you a clear timeline before we start, and for larger or more complex projects, we'll always communicate realistic timelines upfront." },
+  { q: "Do you offer maintenance after launch?", a: "Yes! We offer two flexible options: a one-time investment plan for a fixed maintenance package covering updates and support for a set period, or a monthly retainer plan for ongoing updates, performance monitoring, security patches, and priority support. We'll help you choose the option that best fits your needs." },
+  { q: "What's your pricing like?", id: "pricing", a: "" },
   { q: "Can you redesign my existing website?", a: "Absolutely. Redesigns are one of our specialities. We audit your current site and rebuild it from the ground up for modern performance and conversion." },
   { q: "What information do you need to get started?", a: "Just fill out the contact form above! We'll schedule a discovery call to understand your brand, goals, and timeline before providing a proposal." },
 ];
@@ -231,7 +231,13 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="px-6 pb-5 text-gray-600 text-sm leading-relaxed font-medium">{a}</p>
+            <div className="px-6 pb-5 text-gray-600 text-sm leading-relaxed font-medium">
+              {a || (
+                <div className="flex animate-pulse gap-2">
+                  <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                </div>
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -298,6 +304,53 @@ function CTABanner() {
 
 // ─── Main Page Export ──────────────────────────────────────────────────────────
 export default function ContactPage() {
+  const [pricingText, setPricingText] = useState("");
+
+  useEffect(() => {
+    const fetchPricing = async () => {
+      try {
+        const cached = sessionStorage.getItem("cachedPricing");
+        if (cached) {
+          setPricingText(cached);
+          return;
+        }
+        
+        const ipRes = await fetch("https://ipapi.co/json/");
+        const ipData = await ipRes.json();
+        const currency = ipData.currency || "AED";
+        
+        if (currency === "AED") {
+          const text = "Projects start from AED 2,500 for landing pages and scale based on features and complexity. We offer transparent, fixed-price quotes — no hidden fees.";
+          setPricingText(text);
+          sessionStorage.setItem("cachedPricing", text);
+          return;
+        }
+
+        const ratesRes = await fetch("https://open.er-api.com/v6/latest/AED");
+        const ratesData = await ratesRes.json();
+        const rate = ratesData.rates[currency];
+        
+        if (!rate) throw new Error("Rate not found");
+        
+        const converted = 2500 * rate;
+        let rounded = converted;
+        if (converted > 1000) {
+          rounded = Math.round(converted / 1000) * 1000;
+        } else {
+          rounded = Math.round(converted / 100) * 100;
+        }
+        
+        const formatted = new Intl.NumberFormat("en-US", { style: "currency", currency: currency, maximumFractionDigits: 0 }).format(rounded);
+        const text = \`Projects start from \${formatted} (AED 2,500) for landing pages and scale based on features and complexity. We offer transparent, fixed-price quotes — no hidden fees.\`;
+        
+        setPricingText(text);
+        sessionStorage.setItem("cachedPricing", text);
+      } catch (e) {
+        setPricingText("Projects start from AED 2,500 for landing pages and scale based on features and complexity. We offer transparent, fixed-price quotes — no hidden fees.");
+      }
+    };
+    fetchPricing();
+  }, []);
   const contactInfo = [
     { icon: <MapPin className="w-5 h-5" />, label: "Address", value: "123 Business Ave, City, State", href: null },
     { icon: <Mail className="w-5 h-5" />, label: "Email", value: "hello@xautomation.com", href: "mailto:hello@xautomation.com" },
@@ -442,14 +495,14 @@ export default function ContactPage() {
             </motion.div>
 
             <div className="space-y-3">
-              {faqs.map((faq) => (
+              {staticFaqs.map((faq) => (
                 <motion.div
                   key={faq.q}
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  <FAQItem q={faq.q} a={faq.a} />
+                  <FAQItem q={faq.q} a={faq.id === "pricing" ? pricingText : faq.a} />
                 </motion.div>
               ))}
             </div>
