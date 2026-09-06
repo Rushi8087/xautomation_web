@@ -1,6 +1,6 @@
+import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { Send, CheckCircle2 } from "lucide-react";
-import { useRef, useState } from "react";
 
 export function Hero({ showContent }: { showContent?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -48,7 +48,7 @@ export function Hero({ showContent }: { showContent?: boolean }) {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: Record<string, string> = {};
     
@@ -61,12 +61,41 @@ export function Hero({ showContent }: { showContent?: boolean }) {
 
     if (Object.keys(newErrors).length === 0) {
       setIsSubmitting(true);
-      setTimeout(() => {
+      
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // ⚠️ Replace with your Web3Forms access key
+            subject: `New Inquiry from ${formData.name} for ${formData.service}`,
+            from_name: formData.name,
+            email: formData.email,
+            phone: formData.phone || "Not provided",
+            service: formData.service,
+            message: formData.details,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          setIsSuccess(true);
+          setFormData({ name: '', email: '', phone: '', service: '', details: '' });
+          setTimeout(() => setIsSuccess(false), 5000);
+        } else {
+          console.error("Web3Forms Error:", result);
+          alert("Failed to send message. Please check your access key.");
+        }
+      } catch (error) {
+        console.error("Form submission error:", error);
+        alert("Failed to send message. Please check your connection.");
+      } finally {
         setIsSubmitting(false);
-        setIsSuccess(true);
-        setFormData({ name: '', email: '', phone: '', service: '', details: '' });
-        setTimeout(() => setIsSuccess(false), 4000);
-      }, 1500);
+      }
     }
   };
 
