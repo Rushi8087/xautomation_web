@@ -81,7 +81,7 @@ export function CircularReviews() {
               </div>
             </div>
             <span className="hidden sm:inline font-medium opacity-80">·</span>
-            <span className="font-medium opacity-80">Based on 30+ reviews · powered by Google</span>
+            <span className="font-medium opacity-80">Based on 30+ verified client reviews</span>
           </div>
         </div>
 

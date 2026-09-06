@@ -1,6 +1,0 @@
-{
-  "name": "XAutomation",
-  "description": "Premium digital agency single-page marketing website",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

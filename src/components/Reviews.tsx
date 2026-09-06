@@ -37,9 +37,9 @@ export function Reviews() {
           </h2>
           
           <div className="bg-white rounded-3xl p-8 shadow-xl text-left relative">
-            {/* Google Logo minimal */}
-            <div className="absolute top-8 right-8 w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center">
-              <span className="font-bold text-blue-500 text-xs">G</span>
+            {/* Verified Review Badge */}
+            <div className="absolute top-8 right-8 w-7 h-7 bg-amber-50 rounded-full flex items-center justify-center border border-amber-200">
+              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
             </div>
             
             <div className="flex items-center gap-4 mb-4">
@@ -68,7 +68,7 @@ export function Reviews() {
                 {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 fill-current" />)}
               </div>
             </div>
-            <div className="text-sm text-gray-800 font-medium">Based on 30+ reviews<br/>powered by Google</div>
+            <div className="text-sm text-gray-800 font-medium">Based on 30+ client reviews<br/><span className="text-xs text-gray-500 font-normal">Verified Client Rating</span></div>
           </div>
           
           <button className="mt-8 bg-white text-gray-900 font-bold px-8 py-4 rounded-full inline-flex items-center gap-3 hover:shadow-lg transition-all hover:scale-105 active:scale-95">
