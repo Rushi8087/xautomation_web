@@ -10,6 +10,17 @@ const CATEGORY_ROWS = [
   ["Web3", "Startups"]
 ];
 
+const PARTICLES = [
+  { x: 36, y: 0 },
+  { x: 26, y: -26 },
+  { x: 0, y: -36 },
+  { x: -26, y: -26 },
+  { x: -36, y: 0 },
+  { x: -26, y: 26 },
+  { x: 0, y: 36 },
+  { x: 26, y: 26 },
+];
+
 const PROJECTS = [
   {
     title: "Bloom & Co. Store Redesign",
@@ -21,6 +32,17 @@ const PROJECTS = [
     stat: { label: "Mobile Conv.", value: "+45%" },
     desc1: "Bloom & Co. was struggling with low conversion rates and a slow, outdated mobile experience that frustrated their customers and lost sales.",
     desc2: "We completely overhauled their storefront with a modern, headless architecture. The result was a lightning-fast shopping experience and a 45% increase in mobile conversions within the first month."
+  },
+  {
+    title: "Apex Athletic Club",
+    categories: ["Sports", "Fitness"],
+    images: {
+      main: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80",
+      sub: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=400&q=80"
+    },
+    stat: { label: "Class Bookings", value: "+82%" },
+    desc1: "Apex Athletic needed a high-energy, performance-focused web experience with real-time class booking and membership onboarding.",
+    desc2: "We designed and engineered a dynamic, conversion-optimized platform tailored for fitness enthusiasts, increasing direct class bookings by 82% within 60 days."
   },
   {
     title: "Nexus SaaS Dashboard",
@@ -58,10 +80,10 @@ export function Portfolio() {
       setDemoState("animating");
       const clickTimer = setTimeout(() => {
         setActiveCategory("Sports");
-      }, 1000);
+      }, 650);
       const doneTimer = setTimeout(() => {
         setDemoState("done");
-      }, 2000);
+      }, 1800);
       return () => {
         clearTimeout(clickTimer);
         clearTimeout(doneTimer);
@@ -106,11 +128,12 @@ export function Portfolio() {
                   ref={cat === "Sports" ? sportsRef : null}
                   onClick={() => setActiveCategory(cat)}
                   animate={cat === "Sports" && demoState === "animating" ? {
-                    scale: [1, 1, 1, 0.95, 1, 1, 1],
+                    scale: [1, 1, 0.88, 1.08, 0.98, 1, 1],
                   } : {}}
                   transition={{
-                    duration: 2.0,
-                    times: [0, 0.1, 0.5, 0.55, 0.6, 0.9, 1],
+                    duration: 1.8,
+                    times: [0, 0.32, 0.38, 0.48, 0.58, 0.7, 1],
+                    ease: "easeInOut"
                   }}
                   whileTap={{ scale: 0.95 }}
                   className={`relative px-6 py-2.5 rounded-full text-sm font-bold transition-colors ${
@@ -122,35 +145,87 @@ export function Portfolio() {
                   {cat}
                   {cat === "Sports" && demoState !== "done" && (
                     <motion.div
-                      initial={{ x: 60, y: 60, opacity: 0 }}
+                      initial={{ x: 65, y: 65, opacity: 0 }}
                       animate={demoState === "animating" ? {
-                        x: [60, 60, 0, 0, 0, 0, 0],
-                        y: [60, 60, 0, 0, 0, 0, 0],
-                        opacity: [0, 1, 1, 1, 1, 0, 0],
-                        scale: [1, 1, 1, 0.9, 1, 1, 1]
+                        x: [65, 65, 0, 0, 0, 10, 15],
+                        y: [65, 65, 0, 0, 0, 10, 15],
+                        opacity: [0, 1, 1, 1, 1, 0.4, 0],
+                        scale: [1, 1, 1, 0.82, 1.05, 1, 1]
                       } : {}}
                       transition={{
-                        duration: 2.0,
-                        times: [0, 0.1, 0.5, 0.55, 0.6, 0.9, 1],
+                        duration: 1.8,
+                        times: [0, 0.08, 0.34, 0.38, 0.48, 0.85, 1],
                         ease: "easeInOut"
                       }}
                       className="absolute top-1/2 left-1/2 pointer-events-none z-50 text-gray-900"
                     >
-                      <MousePointer2 className="w-6 h-6 fill-current drop-shadow-lg -translate-x-1 -translate-y-1" />
+                      {/* Enhanced Larger Cursor */}
+                      <MousePointer2 className="w-8 h-8 fill-gray-900 stroke-white stroke-[1.5] drop-shadow-[0_6px_14px_rgba(0,0,0,0.35)] -translate-x-1.5 -translate-y-1.5" />
                       
+                      {/* Ripple Layer 1: Core Glow Splash */}
                       <motion.div
-                         initial={{ opacity: 0, scale: 0 }}
-                         animate={demoState === "animating" ? {
-                           opacity: [0, 0, 0, 0.5, 0.5, 0, 0],
-                           scale: [0, 0, 0.5, 1.5, 1.5, 2.5, 2.5]
-                         } : {}}
-                         transition={{
-                           duration: 2.0,
-                           times: [0, 0.1, 0.5, 0.55, 0.6, 0.9, 1], 
-                           ease: "easeOut"
-                         }}
-                         className="absolute top-0 left-0 w-8 h-8 -ml-4 -mt-4 border-2 border-gray-900 rounded-full"
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={demoState === "animating" ? {
+                          opacity: [0, 0, 0, 0.85, 0.4, 0, 0],
+                          scale: [0, 0, 0.2, 2.6, 3.8, 4.4, 4.4]
+                        } : {}}
+                        transition={{
+                          duration: 1.8,
+                          times: [0, 0.34, 0.38, 0.46, 0.65, 0.85, 1], 
+                          ease: "easeOut"
+                        }}
+                        className="absolute top-0 left-0 w-8 h-8 -ml-4 -mt-4 bg-[#D4E938]/35 border-2 border-[#D4E938] rounded-full blur-[0.5px]"
                       />
+
+                      {/* Ripple Layer 2: Expanding Accent Ring */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={demoState === "animating" ? {
+                          opacity: [0, 0, 0, 0.9, 0.3, 0, 0],
+                          scale: [0, 0, 0.2, 3.4, 5.2, 6.0, 6.0]
+                        } : {}}
+                        transition={{
+                          duration: 1.8,
+                          times: [0, 0.34, 0.38, 0.50, 0.72, 0.9, 1], 
+                          ease: "easeOut"
+                        }}
+                        className="absolute top-0 left-0 w-8 h-8 -ml-4 -mt-4 border-2 border-[#D4E938] rounded-full shadow-[0_0_12px_rgba(212,233,56,0.6)]"
+                      />
+
+                      {/* Ripple Layer 3: Subtle Shockwave Wave */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={demoState === "animating" ? {
+                          opacity: [0, 0, 0, 0.6, 0.15, 0, 0],
+                          scale: [0, 0, 0.2, 4.2, 6.5, 7.5, 7.5]
+                        } : {}}
+                        transition={{
+                          duration: 1.8,
+                          times: [0, 0.34, 0.38, 0.54, 0.78, 0.95, 1], 
+                          ease: "easeOut"
+                        }}
+                        className="absolute top-0 left-0 w-8 h-8 -ml-4 -mt-4 border border-[#D4E938]/70 rounded-full"
+                      />
+
+                      {/* Particle / Spark Burst */}
+                      {PARTICLES.map((p, i) => (
+                        <motion.span
+                          key={i}
+                          initial={{ x: 0, y: 0, opacity: 0, scale: 0 }}
+                          animate={demoState === "animating" ? {
+                            x: [0, 0, 0, p.x, p.x * 1.3, p.x * 1.3],
+                            y: [0, 0, 0, p.y, p.y * 1.3, p.y * 1.3],
+                            opacity: [0, 0, 1, 1, 0, 0],
+                            scale: [0, 0, 1.4, 1.2, 0, 0]
+                          } : {}}
+                          transition={{
+                            duration: 1.8,
+                            times: [0, 0.35, 0.38, 0.52, 0.72, 1],
+                            ease: "easeOut"
+                          }}
+                          className={`absolute top-0 left-0 w-2 h-2 rounded-full pointer-events-none -ml-1 -mt-1 ${i % 2 === 0 ? "bg-[#D4E938]" : "bg-yellow-300"} shadow-[0_0_8px_rgba(212,233,56,0.9)]`}
+                        />
+                      ))}
                     </motion.div>
                   )}
                 </motion.button>
