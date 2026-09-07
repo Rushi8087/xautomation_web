@@ -50,9 +50,8 @@ export function Navbar() {
 
         {/* Center Logo */}
         <div className="absolute left-1/2 -translate-x-1/2">
-          <Link to="/" className="flex items-center gap-2.5 text-2xl font-black tracking-tighter text-white group">
-            <img src="/logo.png" alt="XAutomation" className="w-7 h-7 object-contain rounded-md" />
-            <span>XAUTOMATION</span>
+          <Link to="/" className="text-2xl font-black tracking-tighter text-white">
+            XAUTOMATION
           </Link>
         </div>
 
