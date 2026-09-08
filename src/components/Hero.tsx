@@ -108,18 +108,21 @@ export function Hero({ showContent }: { showContent?: boolean }) {
   const sectionScale = useTransform(scrollYProgress, [0, 0.8], [1, 0.97]);
 
   return (
-    <div ref={containerRef} className="relative h-[120vh] w-full bg-gray-50 z-0">
-      <div className="sticky top-0 h-screen w-full p-2.5 sm:p-4 md:p-5 lg:p-6 overflow-hidden">
-        <motion.section style={{ scale: sectionScale }} className="relative h-full w-full bg-[#0072c2] flex flex-col justify-center overflow-hidden pt-16 sm:pt-20 md:pt-20 pb-4 md:pb-6 rounded-[24px] sm:rounded-[30px] md:rounded-[36px] shadow-xl">
+    <div ref={containerRef} className="relative lg:h-[120vh] w-full bg-gray-50 z-0">
+      <div className="lg:sticky lg:top-0 min-h-screen lg:h-screen w-full p-2.5 sm:p-4 md:p-5 lg:p-6 overflow-visible lg:overflow-hidden">
+        <motion.section 
+          style={{ scale: typeof window !== 'undefined' && window.innerWidth >= 1024 ? sectionScale : 1 }} 
+          className="relative min-h-[calc(100vh-1.25rem)] lg:h-full w-full bg-[#0072c2] flex flex-col justify-center overflow-visible lg:overflow-hidden pt-24 sm:pt-28 lg:pt-20 pb-10 sm:pb-12 lg:pb-6 rounded-[24px] sm:rounded-[30px] md:rounded-[36px] shadow-xl"
+        >
           
           {/* Two Column Layout */}
-          <div className="relative z-10 flex-grow flex items-center justify-center w-full max-w-[1400px] mx-auto px-5 sm:px-8 md:px-12 py-2 sm:py-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 xl:gap-20 w-full items-center">
+          <div className="relative z-10 flex-grow flex items-center justify-center w-full max-w-[1400px] mx-auto px-4 sm:px-8 md:px-12 py-4 sm:py-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 xl:gap-20 w-full items-center">
               
               {/* Left Column - Text Content */}
               <div className="flex flex-col items-start justify-center text-left">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-[3.8rem] font-bold text-white leading-[1.12] tracking-tight">
-                  We Build <span className="inline-block border-[3px] border-white/30 rounded-2xl px-3 sm:px-4 py-0.5 sm:py-1 mt-1 mb-1 rotate-[-2deg] bg-white/5 backdrop-blur-sm">Websites</span><br />
+                  We Build <span className="inline-block border-[2px] sm:border-[3px] border-white/30 rounded-xl sm:rounded-2xl px-2.5 sm:px-4 py-0.5 sm:py-1 mt-1 mb-1 rotate-[-2deg] bg-white/5 backdrop-blur-sm">Websites</span><br />
                   That Actually<br />
                   Drive Results.
                 </h1>
@@ -127,8 +130,8 @@ export function Hero({ showContent }: { showContent?: boolean }) {
                   From design to development, we build fast, modern websites that help your business grow and convert more customers.
                 </p>
                 
-                <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4 sm:gap-5">
-                  <a href="https://wa.me/918087870051?text=Hi!%20I'd%20like%20to%20book%20a%20strategy%20call%20with%20XAutomation." target="_blank" rel="noopener noreferrer" className="bg-[#D4E938] hover:bg-[#c3d632] text-gray-900 font-bold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all hover:scale-105 active:scale-95 flex items-center gap-2 shadow-lg shadow-[#D4E938]/20">
+                <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-5 w-full sm:w-auto">
+                  <a href="https://wa.me/918087870051?text=Hi!%20I'd%20like%20to%20book%20a%20strategy%20call%20with%20XAutomation." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto justify-center bg-[#D4E938] hover:bg-[#c3d632] text-gray-900 font-bold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all hover:scale-105 active:scale-95 flex items-center gap-2 shadow-lg shadow-[#D4E938]/20 text-center">
                     Book a Strategy Call
                   </a>
                   <div className="flex items-center gap-3 sm:gap-4">
@@ -150,7 +153,7 @@ export function Hero({ showContent }: { showContent?: boolean }) {
 
               {/* Right Column - Contact Form */}
               <div className="w-full flex justify-center lg:justify-end">
-                <div id="contact" className="bg-white rounded-[1.75rem] sm:rounded-[2rem] p-5 sm:p-6 md:p-7 shadow-2xl relative w-full max-w-[27rem] scroll-mt-24">
+                <div id="contact" className="bg-white rounded-[1.75rem] sm:rounded-[2rem] p-5 sm:p-6 md:p-7 shadow-2xl relative w-full max-w-[27rem] scroll-mt-28">
                   
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3.5 sm:mb-4 tracking-tight">Let's build something.</h3>
                   
@@ -169,7 +172,7 @@ export function Hero({ showContent }: { showContent?: boolean }) {
                       </p>
                     </motion.div>
                   ) : (
-                    <form className="space-y-2.5 sm:space-y-3" onSubmit={handleSubmit}>
+                    <form className="space-y-3" onSubmit={handleSubmit}>
                       <div>
                         <input 
                           type="text" 
@@ -177,7 +180,7 @@ export function Hero({ showContent }: { showContent?: boolean }) {
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="Your name (e.g. Jane Doe)" 
-                          className={`w-full bg-gray-50 border rounded-xl px-3.5 py-2.5 sm:py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all font-medium ${errors.name ? 'border-red-500 bg-red-50 focus:ring-red-500' : 'border-gray-200 focus:ring-[#D4E938]'}`} 
+                          className={`w-full bg-gray-50 border rounded-xl px-3.5 py-3 text-sm sm:text-base md:text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all font-medium ${errors.name ? 'border-red-500 bg-red-50 focus:ring-red-500' : 'border-gray-200 focus:ring-[#D4E938]'}`} 
                         />
                         {errors.name && <p className="text-red-500 text-xs mt-0.5 font-medium pl-1">{errors.name}</p>}
                       </div>
@@ -188,7 +191,7 @@ export function Hero({ showContent }: { showContent?: boolean }) {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="Email (e.g. jane@brand.com)" 
-                          className={`w-full bg-gray-50 border rounded-xl px-3.5 py-2.5 sm:py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all font-medium ${errors.email ? 'border-red-500 bg-red-50 focus:ring-red-500' : 'border-gray-200 focus:ring-[#D4E938]'}`} 
+                          className={`w-full bg-gray-50 border rounded-xl px-3.5 py-3 text-sm sm:text-base md:text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all font-medium ${errors.email ? 'border-red-500 bg-red-50 focus:ring-red-500' : 'border-gray-200 focus:ring-[#D4E938]'}`} 
                         />
                         {errors.email && <p className="text-red-500 text-xs mt-0.5 font-medium pl-1">{errors.email}</p>}
                       </div>
@@ -199,7 +202,7 @@ export function Hero({ showContent }: { showContent?: boolean }) {
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="Phone number (optional)" 
-                          className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D4E938] focus:border-transparent transition-all font-medium" 
+                          className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-3 text-sm sm:text-base md:text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D4E938] focus:border-transparent transition-all font-medium" 
                         />
                       </div>
                       <div className="relative">
@@ -207,7 +210,7 @@ export function Hero({ showContent }: { showContent?: boolean }) {
                           name="service"
                           value={formData.service}
                           onChange={handleChange}
-                          className={`w-full bg-gray-50 border rounded-xl px-3.5 py-2.5 sm:py-3 text-sm text-gray-500 focus:outline-none focus:ring-2 focus:border-transparent transition-all appearance-none cursor-pointer font-medium ${errors.service ? 'border-red-500 bg-red-50 focus:ring-red-500' : 'border-gray-200 focus:ring-[#D4E938]'}`} 
+                          className={`w-full bg-gray-50 border rounded-xl px-3.5 py-3 text-sm sm:text-base md:text-sm text-gray-500 focus:outline-none focus:ring-2 focus:border-transparent transition-all appearance-none cursor-pointer font-medium ${errors.service ? 'border-red-500 bg-red-50 focus:ring-red-500' : 'border-gray-200 focus:ring-[#D4E938]'}`} 
                         >
                           <option value="" disabled>Select a service</option>
                           <option value="design">Web Design</option>
@@ -225,15 +228,15 @@ export function Hero({ showContent }: { showContent?: boolean }) {
                           value={formData.details}
                           onChange={handleChange}
                           placeholder="Tell us about your business and goals..." 
-                          rows={2} 
-                          className={`w-full bg-gray-50 border rounded-xl px-3.5 py-2.5 sm:py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none font-medium ${errors.details ? 'border-red-500 bg-red-50 focus:ring-red-500' : 'border-gray-200 focus:ring-[#D4E938]'}`}
+                          rows={3} 
+                          className={`w-full bg-gray-50 border rounded-xl px-3.5 py-3 text-sm sm:text-base md:text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none font-medium ${errors.details ? 'border-red-500 bg-red-50 focus:ring-red-500' : 'border-gray-200 focus:ring-[#D4E938]'}`}
                         ></textarea>
                         {errors.details && <p className="text-red-500 text-xs mt-0.5 font-medium pl-1">{errors.details}</p>}
                       </div>
                       <button 
                         type="submit" 
                         disabled={isSubmitting}
-                        className="w-full bg-[#D4E938] hover:bg-[#c3d632] disabled:opacity-70 disabled:cursor-not-allowed text-gray-900 font-bold text-sm sm:text-base px-6 py-3 sm:py-3.5 rounded-full transition-colors flex items-center justify-center gap-2 mt-1"
+                        className="w-full bg-[#D4E938] hover:bg-[#c3d632] disabled:opacity-70 disabled:cursor-not-allowed text-gray-900 font-bold text-sm sm:text-base px-6 py-3.5 rounded-full transition-colors flex items-center justify-center gap-2 mt-1 shadow-md active:scale-95"
                       >
                         {isSubmitting ? 'Sending...' : (
                           <>Send Message <Send className="w-4 h-4" /></>

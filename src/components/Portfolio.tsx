@@ -119,9 +119,9 @@ export function Portfolio() {
         </div>
 
         {/* Filters */}
-        <div className="flex flex-col items-center justify-center gap-3 md:gap-4 mb-16">
+        <div className="flex flex-col items-center justify-center gap-2.5 sm:gap-3 md:gap-4 mb-12 sm:mb-16">
           {CATEGORY_ROWS.map((row, rowIndex) => (
-            <div key={rowIndex} className="flex flex-wrap justify-center items-center gap-2 md:gap-3">
+            <div key={rowIndex} className="flex flex-wrap justify-center items-center gap-1.5 sm:gap-2 md:gap-3">
               {row.map((cat) => (
                 <motion.button
                   key={cat}
@@ -136,7 +136,7 @@ export function Portfolio() {
                     ease: "easeInOut"
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className={`relative px-6 py-2.5 rounded-full text-sm font-bold transition-colors ${
+                  className={`relative px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-colors ${
                     activeCategory === cat
                       ? "bg-[#D4E938] text-gray-900 shadow-md border-transparent"
                       : "bg-white border border-gray-200 text-gray-600 hover:border-[#D4E938] hover:text-gray-900"
@@ -235,7 +235,7 @@ export function Portfolio() {
         </div>
 
         {/* Projects */}
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-8 sm:gap-12">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, idx) => (
               <motion.div
@@ -245,10 +245,10 @@ export function Portfolio() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className="bg-white rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden flex flex-col lg:flex-row p-8 md:p-12 lg:p-16 gap-10 lg:gap-20 items-center"
+                className="bg-white rounded-[1.75rem] sm:rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden flex flex-col lg:flex-row p-5 sm:p-8 md:p-12 lg:p-16 gap-6 sm:gap-10 lg:gap-20 items-center"
               >
                 {/* Left side Image Collage */}
-                <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden relative group shrink-0 h-[400px] md:h-[500px] lg:h-[640px] shadow-inner bg-gray-100">
+                <div className="w-full lg:w-1/2 rounded-2xl sm:rounded-3xl overflow-hidden relative group shrink-0 h-[280px] sm:h-[380px] md:h-[480px] lg:h-[640px] shadow-inner bg-gray-100">
                   
                   {/* Main Image Base (Fills entire container, zero gaps) */}
                   <div className="absolute inset-0 w-full h-full z-0">
@@ -261,7 +261,7 @@ export function Portfolio() {
                   </div>
 
                   {/* Secondary Image Overlay (Rotated, covering bottom-left) */}
-                  <div className="absolute -bottom-10 -left-10 w-[85%] h-[65%] sm:w-[80%] sm:h-[60%] rounded-tr-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.4)] border-[8px] sm:border-[12px] border-white overflow-hidden -rotate-3 transition-transform duration-700 group-hover:-rotate-1 group-hover:scale-[1.02] z-10 origin-bottom-left">
+                  <div className="absolute -bottom-6 -left-6 sm:-bottom-10 sm:-left-10 w-[80%] h-[60%] sm:w-[80%] sm:h-[60%] rounded-tr-2xl sm:rounded-tr-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.4)] border-[6px] sm:border-[12px] border-white overflow-hidden -rotate-3 transition-transform duration-700 group-hover:-rotate-1 group-hover:scale-[1.02] z-10 origin-bottom-left">
                     <img
                       src={project.images.sub}
                       alt={`${project.title} detail`}
@@ -270,9 +270,9 @@ export function Portfolio() {
                   </div>
 
                   {/* Floating Stat Badge */}
-                  <div className="absolute top-1/4 right-0 -translate-y-1/2 -translate-x-4 md:-translate-x-8 bg-white/95 backdrop-blur-md p-5 md:p-6 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 flex flex-col items-center justify-center rotate-3 transition-transform duration-700 group-hover:rotate-6 group-hover:scale-105 z-20">
-                    <span className="text-[#0072c2] font-black text-3xl md:text-4xl leading-none mb-1 md:mb-2">{project.stat.value}</span>
-                    <span className="text-gray-500 font-bold text-[10px] md:text-xs uppercase tracking-wider">{project.stat.label}</span>
+                  <div className="absolute top-1/4 right-0 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 md:-translate-x-8 bg-white/95 backdrop-blur-md p-3 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 flex flex-col items-center justify-center rotate-3 transition-transform duration-700 group-hover:rotate-6 group-hover:scale-105 z-20">
+                    <span className="text-[#0072c2] font-black text-2xl sm:text-3xl md:text-4xl leading-none mb-0.5 sm:mb-2">{project.stat.value}</span>
+                    <span className="text-gray-500 font-bold text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider">{project.stat.label}</span>
                   </div>
 
                 </div>
