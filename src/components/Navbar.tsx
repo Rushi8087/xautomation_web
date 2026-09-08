@@ -53,7 +53,7 @@ export function Navbar() {
             : "top-0 sm:top-2 md:top-4 bg-transparent py-4 md:py-6"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 flex items-center justify-between relative">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 md:px-10 flex items-center justify-between relative">
           
           {/* Left: Desktop Navigation Links / Mobile Logo */}
           <div className="flex items-center gap-8">
@@ -71,7 +71,7 @@ export function Navbar() {
             </div>
 
             {/* Mobile / Tablet Logo (shown on left when screen < lg) */}
-            <div className="lg:hidden flex items-center">
+            <div className="lg:hidden flex items-center pl-1 sm:pl-2">
               <Link to="/" className="text-xl sm:text-2xl font-black tracking-tighter text-white">
                 XAUTOMATION
               </Link>
