@@ -155,7 +155,7 @@ export function Hero({ showContent }: { showContent?: boolean }) {
               <div className="w-full flex justify-center lg:justify-end">
                 <div id="contact" className="bg-white rounded-[1.75rem] sm:rounded-[2rem] p-5 sm:p-6 md:p-7 shadow-2xl relative w-full max-w-[27rem] scroll-mt-28">
                   
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3.5 sm:mb-4 tracking-tight">Let's build something.</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3.5 sm:mb-4 tracking-tight">Let's build together</h3>
                   
                   {isSuccess ? (
                     <motion.div 

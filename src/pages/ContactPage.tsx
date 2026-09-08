@@ -9,7 +9,6 @@ import {
   Clock,
   Linkedin,
   Instagram,
-  Twitter,
   ArrowRight,
   ChevronDown,
 } from "lucide-react";
@@ -111,7 +110,7 @@ function ContactForm() {
   return (
     <div className="bg-white rounded-[2rem] p-8 shadow-2xl shadow-blue-100/60 border border-gray-100 w-full">
       <h3 className="text-2xl font-bold text-gray-900 mb-6 tracking-tight">
-        Let's build something.
+        Let's build together
       </h3>
 
       <AnimatePresence mode="wait">
@@ -275,30 +274,6 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
-// ─── Map Placeholder ───────────────────────────────────────────────────────────
-function MapPlaceholder() {
-  return (
-    <div className="mt-8 rounded-2xl overflow-hidden border border-gray-100 shadow-sm bg-gradient-to-br from-[#e8f4ff] to-[#f0f9ff] h-48 flex items-center justify-center relative">
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(#0072c2 1px, transparent 1px), linear-gradient(90deg, #0072c2 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      />
-      <div className="relative z-10 flex flex-col items-center gap-2">
-        <div className="w-12 h-12 bg-[#0072c2] rounded-full flex items-center justify-center shadow-lg shadow-[#0072c2]/30 animate-pulse">
-          <MapPin className="w-6 h-6 text-white" />
-        </div>
-        <span className="bg-white text-gray-700 font-semibold text-xs px-3 py-1.5 rounded-full shadow-sm border border-gray-100">
-          123 Business Ave, City, State
-        </span>
-      </div>
-    </div>
-  );
-}
-
 // ─── Bottom CTA Banner ─────────────────────────────────────────────────────────
 function CTABanner() {
   return (
@@ -382,16 +357,15 @@ export default function ContactPage() {
     fetchPricing();
   }, []);
   const contactInfo = [
-    { icon: <MapPin className="w-5 h-5" />, label: "Address", value: "123 Business Ave, City, State", href: null },
-    { icon: <Mail className="w-5 h-5" />, label: "Email", value: "hello@xautomation.com", href: "mailto:hello@xautomation.com" },
-    { icon: <Phone className="w-5 h-5" />, label: "Phone", value: "+1 (800) 555-0199", href: "tel:+18005550199" },
+    { icon: <MapPin className="w-5 h-5" />, label: "Address", value: "sangamwadi pune 411001", href: null },
+    { icon: <Mail className="w-5 h-5" />, label: "Email", value: "infoatxautomation@gmail.com", href: "mailto:infoatxautomation@gmail.com" },
+    { icon: <Phone className="w-5 h-5" />, label: "Phone", value: "+919067884857", href: "tel:+919067884857" },
     { icon: <Clock className="w-5 h-5" />, label: "Hours", value: "Mon–Fri, 9am–6pm", href: null },
   ];
 
   const socials = [
     { icon: <Linkedin className="w-5 h-5" />, href: "https://www.linkedin.com/company/xauatomation/", label: "LinkedIn" },
-    { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
-    { icon: <Twitter className="w-5 h-5" />, href: "#", label: "Twitter / X" },
+    { icon: <Instagram className="w-5 h-5" />, href: "https://www.instagram.com/abhi70302026?stkn=cWk4dHoxZGpscDkw", label: "Instagram" },
   ];
 
   return (
@@ -490,8 +464,6 @@ export default function ContactPage() {
                     ))}
                   </div>
                 </div>
-
-                <MapPlaceholder />
               </motion.div>
 
               {/* RIGHT – Contact Form */}

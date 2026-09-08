@@ -45,19 +45,7 @@ export function Footer() {
                 <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
                 <li><a href="/#portfolio" className="hover:text-white transition-colors">Portfolio</a></li>
                 <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-                <li><Link to="/contact" className="hover:text-white transition-colors">Book a call</Link></li>
-              </ul>
-            </div>
-
-            {/* Resources Column */}
-            <div>
-              <h4 className="font-bold text-lg mb-6 text-white">Resources</h4>
-              <ul className="space-y-4 text-white/70 font-medium">
-                <li><a href="#!" title="Coming soon" className="text-white/40 cursor-not-allowed">Blog</a></li>
-                <li><a href="#!" title="Coming soon" className="text-white/40 cursor-not-allowed">Case Studies</a></li>
-                <li><a href="#!" title="Coming soon" className="text-white/40 cursor-not-allowed">Privacy Policy</a></li>
-                <li><a href="#!" title="Coming soon" className="text-white/40 cursor-not-allowed">Terms & Conditions</a></li>
-                <li><a href="#!" title="Coming soon" className="text-white/40 cursor-not-allowed">Sitemap</a></li>
+                <li><a href="https://wa.me/918087870051?text=Hi!%20I'd%20like%20to%20book%20a%20strategy%20call%20with%20XAutomation." target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Book a call</a></li>
               </ul>
             </div>
           </div>
@@ -75,7 +63,7 @@ export function Footer() {
             <a href="https://www.linkedin.com/company/xauatomation/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:bg-white hover:text-gray-900 transition-colors">
               <Linkedin className="w-4 h-4" />
             </a>
-            <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:bg-white hover:text-gray-900 transition-colors">
+            <a href="https://www.instagram.com/abhi70302026?stkn=cWk4dHoxZGpscDkw" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:bg-white hover:text-gray-900 transition-colors">
               <Instagram className="w-4 h-4" />
             </a>
             <a href="mailto:infoatxautomation@gmail.com" aria-label="Email" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:bg-white hover:text-gray-900 transition-colors">
