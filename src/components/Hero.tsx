@@ -133,9 +133,9 @@ export function Hero({ showContent }: { showContent?: boolean }) {
                   </a>
                   <div className="flex items-center gap-3 sm:gap-4">
                     <div className="flex -space-x-3.5">
-                      <img className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0072c2] object-cover" src="/profile.png" onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" }} alt="User" />
-                      <img className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0072c2] object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="User" />
-                      <img className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0072c2] object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="User" />
+                      <img className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0072c2] object-cover" src="/review1.png" alt="User 1" />
+                      <img className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0072c2] object-cover" src="/review2.png" alt="User 2" />
+                      <img className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0072c2] object-cover" src="/review3.png" alt="User 3" />
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-[#0072c2] bg-[#005a9c] flex items-center justify-center text-xs sm:text-sm font-black text-white shadow-inner">+</div>
                     </div>
                     <div className="flex flex-col">
