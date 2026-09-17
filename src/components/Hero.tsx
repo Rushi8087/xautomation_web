@@ -70,7 +70,7 @@ export function Hero({ showContent }: { showContent?: boolean }) {
             Accept: "application/json",
           },
           body: JSON.stringify({
-            access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // ⚠️ Replace with your Web3Forms access key
+            access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "5bec055a-0183-4782-a96e-280b8c374430",
             subject: `New Inquiry from ${formData.name} for ${formData.service}`,
             from_name: formData.name,
             email: formData.email,
