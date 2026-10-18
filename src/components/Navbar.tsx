@@ -7,7 +7,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const isContactPage = location.pathname === "/contact";
+  const isContactPage = location.pathname === "/contact" || location.pathname === "/download";
 
   useEffect(() => {
     // Close mobile menu on route change

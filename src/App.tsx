@@ -9,6 +9,7 @@ import { CircularReviews } from "./components/CircularReviews";
 import { Footer } from "./components/Footer";
 import { FloatingBookingWidget } from "./components/FloatingBookingWidget";
 import ContactPage from "./pages/ContactPage";
+import DownloadPage from "./pages/DownloadPage";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -58,6 +59,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/download" element={<DownloadPage />} />
       </Routes>
     </>
   );
