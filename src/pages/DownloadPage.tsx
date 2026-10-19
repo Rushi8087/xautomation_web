@@ -69,12 +69,19 @@ const faqs = [
 function handleTrackDownload(e?: React.MouseEvent<HTMLAnchorElement>) {
   try {
     if (typeof window !== "undefined") {
-      // 1. Fire official X Pixel tag
+      const storedTwclid = localStorage.getItem("x_twclid") || new URLSearchParams(window.location.search).get("twclid");
+
+      // 1. Fire official X Pixel tag with click ID attribution
       if ((window as any).twq) {
-        (window as any).twq("event", "tw-rhdu9-rhlh8", {});
+        (window as any).twq("event", "tw-rhdu9-rhlh8", {
+          twclid: storedTwclid || undefined,
+          conversion_id: storedTwclid || undefined,
+          content_name: "Xbot Windows Installer"
+        });
       }
-      // 2. High-reliability fallback: Send direct beacon ping to ensure receipt
-      const beaconUrl = "https://analytics.twitter.com/i/adsct?p_id=Twitter&p_user_id=0&txn_id=tw-rhdu9-rhlh8&events=%5B%5B%22pageview%22%2C%7B%7D%5D%5D&tw_sale_amount=0&tw_order_quantity=0";
+      // 2. High-reliability fallback: Send direct beacon ping with twclid
+      const twclidParam = storedTwclid ? ("&twclid=" + encodeURIComponent(storedTwclid)) : "";
+      const beaconUrl = "https://analytics.twitter.com/i/adsct?p_id=Twitter&p_user_id=0&txn_id=tw-rhdu9-rhlh8&events=%5B%5B%22pageview%22%2C%7B%7D%5D%5D&tw_sale_amount=0&tw_order_quantity=0" + twclidParam;
       if (navigator.sendBeacon) {
         navigator.sendBeacon(beaconUrl);
       } else {
