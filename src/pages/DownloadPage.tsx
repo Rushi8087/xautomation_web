@@ -148,7 +148,7 @@ export default function DownloadPage() {
           >
             <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/40 relative w-full aspect-video shadow-inner">
               <iframe
-                src="https://streamable.com/e/mo4195?autoplay=1&muted=1"
+                src="https://go.screenpal.com/player/cO6qFdnyYXd?ff=true&controls=1"
                 title="Xbot Automation Video Demo"
                 className="w-full h-full border-0 absolute top-0 left-0"
                 allow="autoplay; fullscreen"
