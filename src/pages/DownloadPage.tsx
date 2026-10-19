@@ -65,6 +65,16 @@ const faqs = [
   }
 ];
 
+
+function handleTrackDownload() {
+  if (typeof window !== "undefined" && (window as any).twq) {
+    (window as any).twq("event", "Download", {
+      content_name: "Xbot Windows Installer",
+      content_category: "Software Download"
+    });
+  }
+}
+
 export default function DownloadPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -114,7 +124,7 @@ export default function DownloadPage() {
             className="mt-10 flex flex-col items-center justify-center gap-4"
           >
             <a
-              href={DOWNLOAD_URL}
+              href={DOWNLOAD_URL} onClick={handleTrackDownload}
               className="group relative inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#0072c2] to-[#0284c7] px-8 py-5 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-[#0072c2]/40"
             >
               <Download className="h-6 w-6 transition-transform group-hover:translate-y-0.5" />
@@ -271,7 +281,7 @@ export default function DownloadPage() {
 
                 <div className="mt-6 text-center">
                   <a
-                    href={DOWNLOAD_URL}
+                    href={DOWNLOAD_URL} onClick={handleTrackDownload}
                     className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#0072c2] to-[#0284c7] px-5 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity w-full"
                   >
                     <Download className="h-4 w-4" /> Download Installer Now
@@ -319,7 +329,7 @@ export default function DownloadPage() {
               <p className="mt-2 text-sm text-gray-400">Download the latest Windows release today and automate your growth.</p>
               <div className="mt-6">
                 <a
-                  href={DOWNLOAD_URL}
+                  href={DOWNLOAD_URL} onClick={handleTrackDownload}
                   className="inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#0072c2] to-[#0284c7] px-8 py-4 font-bold text-white shadow-lg hover:scale-105 transition-all text-sm"
                 >
                   <Download className="h-5 w-5" /> Download Xbot for Windows ({VERSION})
