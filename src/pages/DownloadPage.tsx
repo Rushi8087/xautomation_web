@@ -139,18 +139,20 @@ export default function DownloadPage() {
             </div>
           </motion.div>
 
-          {/* Product Image Card */}
+          {/* Product Demo Video */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="mt-16 rounded-3xl border border-white/10 bg-white/5 p-3 sm:p-5 shadow-2xl backdrop-blur-xl"
           >
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/40">
-              <img
-                src="/xbot-preview.jpg"
-                alt="Xbot Automation Dashboard Preview"
-                className="w-full max-h-[560px] object-cover object-top hover:scale-[1.01] transition-transform duration-500"
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/40 relative w-full aspect-video shadow-inner">
+              <iframe
+                src="https://streamable.com/e/mo4195?autoplay=1&muted=1"
+                title="Xbot Automation Video Demo"
+                className="w-full h-full border-0 absolute top-0 left-0"
+                allow="autoplay; fullscreen"
+                allowFullScreen
               />
             </div>
           </motion.div>
