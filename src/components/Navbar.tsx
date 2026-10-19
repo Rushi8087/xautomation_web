@@ -68,6 +68,9 @@ export function Navbar() {
               <Link to="/contact" className="text-base font-bold tracking-wide text-white hover:text-white/80 transition-colors">
                 CONTACT
               </Link>
+              <Link to="/download" className="text-base font-bold tracking-wide text-white hover:text-white/80 transition-colors">
+                DOWNLOAD
+              </Link>
             </div>
 
             {/* Mobile / Tablet Logo (shown on left when screen < lg) */}
@@ -144,6 +147,13 @@ export function Navbar() {
                   className="text-lg font-bold text-white hover:text-[#D4E938] py-2 border-b border-white/10 transition-colors"
                 >
                   CONTACT
+                </Link>
+                <Link
+                  to="/download"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-lg font-bold text-white hover:text-[#D4E938] py-2 border-b border-white/10 transition-colors"
+                >
+                  DOWNLOAD
                 </Link>
               </div>
 

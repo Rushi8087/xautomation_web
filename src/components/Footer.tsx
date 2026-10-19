@@ -45,6 +45,7 @@ export function Footer() {
                 <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
                 <li><a href="/#portfolio" className="hover:text-white transition-colors">Portfolio</a></li>
                 <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+                <li><Link to="/download" className="hover:text-white transition-colors">Download App</Link></li>
                 <li><a href="https://wa.me/918087870051?text=Hi!%20I'd%20like%20to%20book%20a%20strategy%20call%20with%20XAutomation." target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Book a call</a></li>
               </ul>
             </div>
