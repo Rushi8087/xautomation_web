@@ -25,35 +25,35 @@ const FILE_SIZE = "120 MB";
 const features = [
   {
     icon: Repeat,
-    badge: "Growth & Reach",
-    title: "Automatic Retweets & Reposts",
-    description: "Instantly repost partner content, client tweets, or promotional campaigns from single or multiple accounts with humanized timing delays and verified screenshot proof.",
-    highlights: ["Single & batch queue modes", "Custom response templates", "Automatic screenshot proof", "Safe randomized intervals"]
+    badge: "Audience & Reach",
+    title: "Content Syndication & Amplification",
+    description: "Coordinate partner announcements, client promotions, and collaborative campaigns across single or multiple accounts with customizable pacing and verified delivery logs.",
+    highlights: ["Single & batch queue modes", "Custom response templates", "Automatic screenshot proof", "Customizable pacing intervals"]
   },
   {
     icon: MessageSquare,
-    badge: "Inbox Automation",
-    title: "Intelligent DM Exchange",
-    description: "Engage prospects, trade reciprocal engagement, and unlock conversation momentum automatically. Never leave high-intent leads waiting in your inbox.",
-    highlights: ["Automated response handling", "Instant chat unlocker", "Context-aware message triggers", "Persistent conversation history"]
+    badge: "Inbox Management",
+    title: "Relationship & Conversation Manager",
+    description: "Engage prospects, organize high-intent collaboration threads, and maintain conversation momentum effortlessly without leaving high-value leads waiting.",
+    highlights: ["Conversation organizing", "Instant message switcher", "Context-aware templates", "Persistent conversation history"]
   },
   {
     icon: Send,
-    badge: "High-Volume Outreach",
-    title: "Safe Bulk Direct Messaging",
-    description: "Scale your cold outreach to targeted creator and founder lists without risking your account. Built-in human emulation avoids trigger limits and shadowbans.",
-    highlights: ["Smart rate-limiting throttle", "Personalized message variants", "Multi-account load distribution", "Anti-detection browser fingerprinting"]
+    badge: "Creator Outreach",
+    title: "High-Touch Founder & Creator Outreach",
+    description: "Scale personalized outreach to targeted creator and founder lists. Built-in workstation session isolation ensures clean, reliable workflows.",
+    highlights: ["Smart rate-limiting throttle", "Personalized message variants", "Multi-account distribution", "Isolated session profiles"]
   }
 ];
 
 const faqs = [
   {
     q: "Is Xbot safe for my X (Twitter) accounts?",
-    a: "Yes. Xbot runs locally inside a dedicated Chrome environment using real user-agent sessions and humanized randomized intervals, rather than rigid robotic API calls that trigger bot flags."
+    a: "Yes. Xbot runs 100% locally on your Windows PC with dedicated profile isolation and customizable pacing, keeping your account sessions safe, private, and secure."
   },
   {
     q: "Do I need an expensive Twitter API subscription?",
-    a: "No! Xbot operates through direct automated browser orchestration. You do not need to pay thousands of dollars for enterprise API tiers."
+    a: "No! Xbot operates through direct desktop workstation management. You do not need expensive monthly cloud API tiers."
   },
   {
     q: "Why do I see 'Windows protected your PC' (SmartScreen) on launch?",
@@ -128,10 +128,10 @@ export default function DownloadPage() {
             className="mt-6 text-center max-w-4xl mx-auto"
           >
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.1]">
-              Automate Your <span className="bg-gradient-to-r from-[#38bdf8] to-[#0072c2] bg-clip-text text-transparent">X Growth</span> on Autopilot
+              Scale Your <span className="bg-gradient-to-r from-[#38bdf8] to-[#0072c2] bg-clip-text text-transparent">X Presence</span> & Outreach
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Stop spending 4+ hours a day manually engaging. Unleash <strong>Auto Retweets</strong>, smart <strong>DM Exchange</strong>, and safe <strong>Bulk Outreach</strong> built for serious creators and founders.
+              The premier desktop workspace for serious creators and founders. Coordinate <strong>Content Syndication</strong>, organize your <strong>Creator CRM</strong>, and streamline <strong>High-Touch Outreach</strong> in one app.
             </p>
           </motion.div>
 
@@ -237,7 +237,7 @@ export default function DownloadPage() {
                 <span className="text-xs font-bold text-[#38bdf8] uppercase tracking-widest">Enterprise Architecture</span>
                 <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-white">Engineered for Safe, Long-Term Operation</h2>
                 <p className="mt-4 text-gray-400 leading-relaxed">
-                  Most automation bots get accounts flagged within days because they hammer private APIs with synthetic headers. Xbot runs real browser sessions mimicking human behavior to keep your accounts healthy.
+                  Cloud-based third-party scrapers frequently get accounts flagged by triggering security challenges. Xbot runs dedicated local browser workspaces with humanized pacing to keep your sessions completely secure.
                 </p>
 
                 <div className="mt-8 space-y-4">
@@ -247,7 +247,7 @@ export default function DownloadPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-sm text-white">Humanized Jitter & Intervals</h4>
-                      <p className="text-xs text-gray-400 mt-0.5">Configurable random delays prevent robotic patterns.</p>
+                      <p className="text-xs text-gray-400 mt-0.5">Configurable natural intervals protect your session health.</p>
                     </div>
                   </div>
 
