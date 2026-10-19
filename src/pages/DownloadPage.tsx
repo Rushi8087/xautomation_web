@@ -68,7 +68,7 @@ const faqs = [
 
 function handleTrackDownload() {
   if (typeof window !== "undefined" && (window as any).twq) {
-    (window as any).twq("event", "Download", {
+    (window as any).twq("event", "tw-rhdu9-rhlh8", {
       content_name: "Xbot Windows Installer",
       content_category: "Software Download"
     });
